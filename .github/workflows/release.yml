@@ -1,0 +1,26 @@
+name: release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout with LFS assets
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Publish release assets
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            dist/stellex-loader-1.0.0-server.zip
+            dist/stellex-loader-installer.jar
+            dist/stellex-installer.jar
