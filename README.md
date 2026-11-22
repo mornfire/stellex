@@ -1,36 +1,21 @@
-# Stellex Loader
+﻿# Stellex Loader
 
-Stellex 是基于 NeoForge 21.1.251 源码的加载器分支：保留全部包名与二进制接口，在内核层加入 CPU 调度器、内存治理与客户端渲染剔除。安装器与发行包都在本仓库内，客户端下载不再依赖官方 NeoForge 仓库。
+Stellex 鏄熀浜?NeoForge 21.1.251 婧愮爜鐨勫姞杞藉櫒鍒嗘敮锛氫繚鐣欏叏閮ㄥ寘鍚嶄笌浜岃繘鍒舵帴鍙ｏ紝鍦ㄥ唴鏍稿眰鍔犲叆 CPU 璋冨害鍣ㄣ€佸唴瀛樻不鐞嗕笌瀹㈡埛绔覆鏌撳墧闄ゃ€傚畨瑁呭櫒涓庡彂琛屽寘閮藉湪鏈粨搴撳唴锛屽鎴风涓嬭浇涓嶅啀渚濊禆瀹樻柟 NeoForge 浠撳簱銆?
+## 涓嬭浇涓庡畨瑁?
+鏈嶅姟绔彂琛屽寘锛歚download/stellex-loader-1.0.0-server.zip`锛圙it LFS 瀛樺偍锛夈€?
+涓ょ瀹夎鏂瑰紡锛?
+1. 浣跨敤瀹夎鍣細`java -jar download/stellex-loader-installer.jar --installServer <鐩綍>`銆傚畨瑁呭櫒鍐呭祵鏈粨搴撴瀯寤虹殑 universal 鍖呫€?2. 浣跨敤涓嬭浇鍣細杩愯 `download/stellex-installer.jar`锛屾垨 `java -jar download/stellex-installer.jar --install <鐩綍>`銆備笅杞藉櫒浠庢湰浠撳簱鎷夊彇鏈嶅姟绔寘骞惰В鍘嬨€?
+瀹夎瀹屾垚鍚庡湪鐩綍鍐呭啓鍏?`eula.txt`锛岀敤 JDK 21 鍚姩 `run.bat`锛圵indows锛夋垨 `run.sh`銆?
+## 鍐呮牳鍔熻兘
 
-## 下载与安装
+CPU 璋冨害鍣細`-Dstellex.cpu.target=60`銆乣-Dstellex.cpu.threads=6`銆乣-Dstellex.tps.guard.ms=45`銆乣-Dstellex.pregen.radius=32`銆傚懡浠?`/stellex status`銆乣/stellex target <1-100>`銆乣/stellex radius <4-256>`銆乣/stellex pause`銆乣/stellex resume`銆?
+鍐呭瓨娌荤悊锛歚-Dstellex.memory.soft.percent=75`銆乣-Dstellex.memory.critical.percent=90`銆乣-Dstellex.memory.dump.on.critical=false`銆傚懡浠?`/stellex memory`銆乣/stellex memory clean`銆乣/stellex memory dump`銆?
+瀹㈡埛绔墧闄わ細`config/stellex-client.properties`锛岄粯璁ゅ疄浣?128 鏍笺€佹柟鍧楀疄浣?96 鏍笺€佺粺璁￠棿闅?1200 tick銆?
+## 鍏煎鎬?
+- 绾?NeoForge 21.1.251 瀹㈡埛绔彲浠ヨ繘鍏?Stellex 鏈嶅姟绔€?- Stellex 瀹㈡埛绔彲浠ュ姞杞?NeoForge 妯＄粍锛涙ā缁勭殑蹇呴渶閫氶亾浠嶆寜 NeoForge 瑙勫垯鏍￠獙銆?- 鍔犺浇鍣ㄦ病鏈夋敞鍐屼换浣曞繀闇€鐨勮嚜瀹氫箟缃戠粶閫氶亾銆?
+## 鏂囨。
 
-服务端发行包：`download/stellex-loader-1.0.0-server.zip`（Git LFS 存储）。
+璁烘枃瑙?`docs/PAPER.md` 涓?`docs/PAPER.docx`锛屽寘鍚瀯寤烘祦绋嬨€佸唴鏍稿疄鐜般€佸疄楠屾暟鎹笌鍏煎鎬ч獙璇併€?
+## 璁稿彲
 
-两种安装方式：
-
-1. 使用安装器：`java -jar download/stellex-loader-installer.jar --installServer <目录>`。安装器内嵌本仓库构建的 universal 包。
-2. 使用下载器：运行 `download/stellex-installer.jar`，或 `java -jar download/stellex-installer.jar --install <目录>`。下载器从本仓库拉取服务端包并解压。
-
-安装完成后在目录内写入 `eula.txt`，用 JDK 21 启动 `run.bat`（Windows）或 `run.sh`。
-
-## 内核功能
-
-CPU 调度器：`-Dstellex.cpu.target=60`、`-Dstellex.cpu.threads=6`、`-Dstellex.tps.guard.ms=45`、`-Dstellex.pregen.radius=32`。命令 `/stellex status`、`/stellex target <1-100>`、`/stellex radius <4-256>`、`/stellex pause`、`/stellex resume`。
-
-内存治理：`-Dstellex.memory.soft.percent=75`、`-Dstellex.memory.critical.percent=90`、`-Dstellex.memory.dump.on.critical=false`。命令 `/stellex memory`、`/stellex memory clean`、`/stellex memory dump`。
-
-客户端剔除：`config/stellex-client.properties`，默认实体 128 格、方块实体 96 格、统计间隔 1200 tick。
-
-## 兼容性
-
-- 纯 NeoForge 21.1.251 客户端可以进入 Stellex 服务端。
-- Stellex 客户端可以加载 NeoForge 模组；模组的必需通道仍按 NeoForge 规则校验。
-- 加载器没有注册任何必需的自定义网络通道。
-
-## 文档
-
-论文见 `docs/PAPER.md` 与 `docs/PAPER.docx`，包含构建流程、内核实现、实验数据与兼容性验证。
-
-## 许可
-
-NeoForge 源码遵循 LGPL-2.1；本仓库的修改与新增部分沿用同一许可证。作者：Mornfrost Office。
+NeoForge 婧愮爜閬靛惊 LGPL-2.1锛涙湰浠撳簱鐨勪慨鏀逛笌鏂板閮ㄥ垎娌跨敤鍚屼竴璁稿彲璇併€備綔鑰咃細Mornfrost Office銆?
