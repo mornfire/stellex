@@ -22,5 +22,6 @@ jobs:
         with:
           files: |
             download/stellex-loader-1.0.0-server.zip
+            download/stellex-loader-1.0.0-client.zip
             download/stellex-loader-installer.jar
             download/stellex-installer.jar
