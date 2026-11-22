@@ -21,6 +21,6 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: |
-            dist/stellex-loader-1.0.0-server.zip
-            dist/stellex-loader-installer.jar
-            dist/stellex-installer.jar
+            download/stellex-loader-1.0.0-server.zip
+            download/stellex-loader-installer.jar
+            download/stellex-installer.jar

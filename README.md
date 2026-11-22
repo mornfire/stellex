@@ -4,12 +4,12 @@ Stellex 是基于 NeoForge 21.1.251 源码的加载器分支：保留全部包�
 
 ## 下载与安装
 
-服务端发行包：`dist/stellex-loader-1.0.0-server.zip`（Git LFS 存储）。
+服务端发行包：`download/stellex-loader-1.0.0-server.zip`（Git LFS 存储）。
 
 两种安装方式：
 
-1. 使用安装器：`java -jar dist/stellex-loader-installer.jar --installServer <目录>`。安装器内嵌本仓库构建的 universal 包。
-2. 使用下载器：运行 `dist/stellex-installer.jar`，或 `java -jar dist/stellex-installer.jar --install <目录>`。下载器从本仓库拉取服务端包并解压。
+1. 使用安装器：`java -jar download/stellex-loader-installer.jar --installServer <目录>`。安装器内嵌本仓库构建的 universal 包。
+2. 使用下载器：运行 `download/stellex-installer.jar`，或 `java -jar download/stellex-installer.jar --install <目录>`。下载器从本仓库拉取服务端包并解压。
 
 安装完成后在目录内写入 `eula.txt`，用 JDK 21 启动 `run.bat`（Windows）或 `run.sh`。
 
